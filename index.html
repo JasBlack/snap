@@ -76,12 +76,12 @@
   #landing .hint{font-size:9px;color:var(--dim);letter-spacing:.3em}
   /* the opening page carries the title just above the tile; the top title shows once a video is open */
   body:has(#landing:not(.hidden))>header{display:none}
-  .landTitle{display:flex;flex-direction:column;align-items:center;gap:12px}
-  .landTitle .name{font:800 13px 'Archivo',sans-serif;letter-spacing:.32em;margin-right:-.32em;color:var(--accent);white-space:nowrap}
-  .landTitle .by{font-size:10px;letter-spacing:.16em;color:var(--dim)}
+  .landTitle{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .landTitle .name{font:800 24px 'Archivo',sans-serif;letter-spacing:.32em;margin-right:-.32em;color:var(--accent);white-space:nowrap}
+  .landTitle .by{font-size:11px;letter-spacing:.16em;color:var(--dim)}
   /* the green LED before every JAS.BLACK tool title */
   header h1{display:inline-flex;align-items:center;gap:10px}header h1::before{content:'';flex:none;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
-  .landTitle .name{display:inline-flex;align-items:center;gap:10px}.landTitle .name::before{content:'';flex:none;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+  .landTitle .name{display:inline-flex;align-items:center;gap:16px}.landTitle .name::before{content:'';flex:none;width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
 
   /* ---------- workspace ---------- */
   #workspace{display:none;flex-direction:column;align-items:center;width:100%;max-width:960px;padding:0 24px 10px;flex:1;min-height:0}
@@ -232,7 +232,7 @@
 </header>
 
 <div id="landing">
-  <div class="landTitle"><div class="name">SNIPSNAP</div><div class="by">Open Source tool by Jas Black</div></div>
+  <div class="landTitle"><div class="name">SNIPSNAP</div><div class="by">Open source clipping tool</div></div>
   <button id="chooseBtn">CHOOSE<br>VIDEO</button>
   <div class="hint">OR DROP ANY VIDEO ON PAGE</div>
 </div>
