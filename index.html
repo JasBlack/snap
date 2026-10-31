@@ -78,6 +78,9 @@
   .landTitle{display:flex;flex-direction:column;align-items:center;gap:12px}
   .landTitle .name{font:800 13px 'Archivo',sans-serif;letter-spacing:.32em;margin-right:-.32em;color:var(--accent);white-space:nowrap}
   .landTitle .by{font-size:10px;letter-spacing:.16em;color:var(--dim)}
+  /* the green LED before every JAS.BLACK tool title */
+  header h1{display:inline-flex;align-items:center;gap:10px}header h1::before{content:'';flex:none;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+  .landTitle .name{display:inline-flex;align-items:center;gap:10px}.landTitle .name::before{content:'';flex:none;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
 
   /* ---------- workspace ---------- */
   #workspace{display:none;flex-direction:column;align-items:center;width:100%;max-width:960px;padding:0 24px 10px;flex:1;min-height:0}
