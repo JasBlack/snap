@@ -285,10 +285,10 @@
     </div>
     <div class="vdiv"></div>
     <div class="group">
-      <div class="groupLabel">EXPORT SNIP</div>
+      <div class="groupLabel">EXPORT CLIP</div>
       <div class="circleRow">
         <button class="bigBtn" id="btnScenes" title="Find every cut / camera change and turn each scene into a clip">SCENES</button>
-        <button class="bigBtn amber" id="btnSnip" disabled>SNIP</button>
+        <button class="bigBtn amber" id="btnSnip" disabled>CLIP</button>
         <button class="bigBtn" id="btnClearMarks" disabled>CLEAR<br>MARKS</button>
       </div>
     </div>
@@ -302,7 +302,7 @@
         <option value="webp">WEBP</option>
       </select>
     </label>
-    <label>SNIP MODE
+    <label>CLIP MODE
       <select id="setSnipMode">
         <option value="precise">FRAME-EXACT (RE-ENCODE MP4)</option>
         <option value="copy">LOSSLESS COPY (INSTANT, KEYFRAME-SNAPPED)</option>
@@ -310,7 +310,7 @@
       </select>
     </label>
     <label><input type="checkbox" id="setAudio" checked> AUDIO</label>
-    <label title="Mark several in/out pairs, SNIP exports them all"><input type="checkbox" id="setMulti"> MULTI-CLIP</label>
+    <label title="Mark several in/out pairs, CLIP exports them all"><input type="checkbox" id="setMulti"> MULTI-CLIP</label>
   </div>
 
   <div id="shortcuts">
@@ -920,7 +920,7 @@ function renderMarks() {
   }
   if (state.sceneMode && !state.ranges.length) state.sceneMode = false;
   $('btnSnip').disabled = state.ranges.length === 0;
-  $('btnSnip').textContent = state.ranges.length > 1 ? `SNIP ×${state.ranges.length}` : 'SNIP';
+  $('btnSnip').textContent = state.ranges.length > 1 ? `CLIP ×${state.ranges.length}` : 'CLIP';
   $('btnClearMarks').disabled = state.ranges.length === 0 && state.pending === null;
   $('scenesBar').style.display = state.sceneMode ? 'flex' : 'none';
   $('timelineHint').style.display = state.sceneMode ? 'none' : '';
@@ -994,7 +994,7 @@ function loadScript(src) {
 
 async function loadFFmpegCore(mt) {
   if (location.protocol === 'file:') {
-    throw new Error('SNIPPING NEEDS A LOCAL SERVER — RUN start.bat AND OPEN http://localhost:8123');
+    throw new Error('CLIPPING NEEDS A LOCAL SERVER — RUN start.bat AND OPEN http://localhost:8123');
   }
   setProgress('LOADING FFMPEG' + (mt ? ' (MULTITHREADED)' : ''), 0, mt ? 'ffmpeg/ffmpeg-core-mt.wasm' : 'ffmpeg/ffmpeg-core.wasm');
   await loadScript('ffmpeg/ffmpeg.js');
@@ -1197,7 +1197,7 @@ async function snipWebCodecsMulti(ranges, onClip, job) {
   const half = (1e6 / fps) / 2;
   const rs = ranges.map(r => ({ aUs: r.a * 1e6, bUs: r.b * 1e6 }));
   const totalFrames = ranges.reduce((s, r) => s + Math.max(1, Math.round((r.b - r.a) * fps)), 0);
-  const label = n > 1 ? `SNIPPING ${n} CLIPS (HARDWARE)` : 'SNIPPING (HARDWARE)';
+  const label = n > 1 ? `EXPORTING ${n} CLIPS (HARDWARE)` : 'CLIPPING (HARDWARE)';
   setProgress(label, 0.01, 'reading source');
 
   let vTrack = -1, aTrack = -1, decoder = null, audioCfg = null;
@@ -1544,7 +1544,7 @@ function applyScenes(announce) {
   renderMarks();
   if (announce) {
     toast(state.ranges.length > 1
-      ? `${state.ranges.length} SCENES FOUND — REVIEW ON THE TIMELINE, THEN SNIP`
+      ? `${state.ranges.length} SCENES FOUND — REVIEW ON THE TIMELINE, THEN CLIP`
       : 'NO CUTS FOUND — TRY A HIGHER SENSITIVITY, OR ADD CUTS WITH C');
   }
 }
@@ -1659,7 +1659,7 @@ async function exportSnip() {
       toast(`CANCELLED — ${saved.size} OF ${ranges.length} CLIPS SAVED`);
     } else {
       console.error(err);
-      let msg = 'SNIP FAILED: ' + String((err && err.message) || err);
+      let msg = 'CLIP FAILED: ' + String((err && err.message) || err);
       if (settings.snipMode === 'copy') msg += ' — TRY FRAME-EXACT MODE';
       toast(msg, true);
     }
@@ -1676,7 +1676,7 @@ async function saveSnip(blob, ext, r, sceneNo, dir, total) {
     name = `${state.base}_scene_${String(sceneNo).padStart(3, '0')}.${ext}`;
   } else {
     state.snipCounter++;
-    name = `${state.base}_snip_${String(state.snipCounter).padStart(3, '0')}.${ext}`;
+    name = `${state.base}_clip_${String(state.snipCounter).padStart(3, '0')}.${ext}`;
   }
   if (dir) {
     const fh = await dir.getFileHandle(name, { create: true });
@@ -1720,7 +1720,7 @@ async function snipWasmRange(a, b, tag, ff, inName) {
   }
 
   const total = b - a;
-  const label = (mode === 'copy' ? 'SNIPPING (LOSSLESS COPY)' : 'SNIPPING (ENCODING)') + tag;
+  const label = (mode === 'copy' ? 'CLIPPING (LOSSLESS COPY)' : 'CLIPPING (ENCODING)') + tag;
   const onProg = ({ progress, time }) => {
     const frac = typeof time === 'number' && total > 0
       ? Math.min(time / 1e6 / total, 1)
