@@ -6,7 +6,7 @@
 <!-- GitHub Pages can't send COOP/COEP headers; this service worker adds them so
      multithreaded ffmpeg works there. No-op when the server already sends them. -->
 <script src="coi-serviceworker.js"></script>
-<title>SnipSnap - JAS.BLACK</title>
+<title>Snap - JAS.BLACK</title>
 <meta name="description" content="Grab stills and cut frame-exact clips from any video, or split it at every scene cut. Runs in your browser, no uploads.">
 <meta name="theme-color" content="#232427">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -15,8 +15,8 @@
 <!-- link previews (chat apps, social): crawlers need absolute URLs -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="JAS.BLACK">
-<meta property="og:title" content="SnipSnap - JAS.BLACK">
-<meta name="twitter:title" content="SnipSnap - JAS.BLACK">
+<meta property="og:title" content="Snap - JAS.BLACK">
+<meta name="twitter:title" content="Snap - JAS.BLACK">
 <meta property="og:description" content="Grab stills and cut frame-exact clips from any video, or split it at every scene cut. Runs in your browser, no uploads.">
 <meta property="og:url" content="https://snap.jas.black/">
 <meta property="og:image" content="https://snap.jas.black/og.png">
@@ -234,11 +234,11 @@
 <canvas id="bg" aria-hidden="true"></canvas>
 
 <header>
-  <h1>SNIPSNAP</h1>
+  <h1>SNAP</h1>
 </header>
 
 <div id="landing">
-  <div class="landTitle"><div class="name">SNIPSNAP</div><div class="by">Open source clipping tool</div></div>
+  <div class="landTitle"><div class="name">SNAP</div><div class="by">Open source clipping tool</div></div>
   <button id="chooseBtn">CHOOSE<br>VIDEO</button>
   <div class="hint">DROP ANY VIDEO ON PAGE</div>
 </div>
@@ -541,7 +541,7 @@ async function explainNoPicture() {
     body = 'IT ONLY CONTAINS AUDIO.';
   } else if (name === 'APPLE PRORES') {
     head = 'THIS VIDEO IS APPLE PRORES';
-    body = 'ONLY SAFARI CAN PLAY PRORES. OPEN SNIPSNAP IN SAFARI, ' + convert;
+    body = 'ONLY SAFARI CAN PLAY PRORES. OPEN SNAP IN SAFARI, ' + convert;
   } else if (name) {
     head = `THIS BROWSER CAN'T DECODE ${name} VIDEO`;
     body = 'TRY SAFARI OR CHROME, ' + convert;

@@ -1,4 +1,4 @@
-# SnipSnap
+# Snap
 
 Browser tool: grab still frames and snip sections from any video, at native resolution / fps / quality. Everything runs locally — no uploads.
 

@@ -1,4 +1,6 @@
-# SnipSnap
+# Snap
+
+(Renamed from SnipSnap. Internal ids keep the old name on purpose: `localStorage` key `snipsnap-settings-v2` — renaming would reset visitors' saved settings — and the `showDirectoryPicker` id `snipsnap`.)
 
 Browser-only video tool: drop in any video and grab still frames at native resolution, snip marked sections, or auto-split the whole video at every scene cut / camera change. Everything runs client-side (WebCodecs + ffmpeg.wasm) — videos are never uploaded, so it can be hosted as a plain static site.
 
