@@ -33,8 +33,8 @@
     --dim:#7c8089;
     --faint:#54575e;
     --accent:#e6e8ee;
-    --mark:#9d7bff;
-    --region:rgba(157,123,255,.22);
+    --mark:#8b6cff;
+    --region:rgba(139,108,255,.22);
     --green:#39ff88;
     --emboss:7px 7px 14px rgba(0,0,0,.5),-5px -5px 12px rgba(255,255,255,.045);
     --inset:inset 4px 4px 9px rgba(0,0,0,.5),inset -3px -3px 7px rgba(255,255,255,.03);
@@ -49,8 +49,8 @@
     display:flex;flex-direction:column;align-items:center;
     height:100vh;overflow-x:hidden;overflow-y:auto;
   }
-  /* page background: flat colour + cutting-mat dot grid, drawn once into a canvas
-     (bakeBackground). No gradient — live CSS gradients shimmered on macOS */
+  /* page background: flat colour + the family dot grid (option B: 16 px, fine and faint), drawn once
+     into a canvas (bakeBackground). No gradient — live CSS gradients shimmered on macOS */
   #bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
   button{font:inherit;letter-spacing:inherit;color:inherit;background:none;border:none;cursor:pointer}
   select{font:inherit;letter-spacing:.08em;background:var(--panel);color:var(--txt);border:none;border-radius:10px;box-shadow:inset 0 2px 5px rgba(0,0,0,.5);padding:6px 10px;font-size:11px;cursor:pointer}
@@ -71,7 +71,7 @@
     box-shadow:var(--emboss);
     transition:box-shadow .25s,transform .1s;
   }
-  #chooseBtn:hover{box-shadow:7px 7px 18px rgba(0,0,0,.55),-5px -5px 14px rgba(255,255,255,.06),0 0 24px rgba(157,123,255,.15)}
+  #chooseBtn:hover{box-shadow:7px 7px 18px rgba(0,0,0,.55),-5px -5px 14px rgba(255,255,255,.06),0 0 24px rgba(139,108,255,.15)}
   #chooseBtn:active{transform:scale(.97)}
   #landing .hint{font-size:9px;color:var(--dim);letter-spacing:.3em}
   /* the opening page carries the title just above the tile; the top title shows once a video is open */
@@ -108,7 +108,7 @@
     display:flex;align-items:center;justify-content:center;
     transition:box-shadow .2s,transform .1s;
   }
-  .roundBtn:hover{box-shadow:6px 6px 12px rgba(0,0,0,.55),-4px -4px 10px rgba(255,255,255,.06),0 0 16px rgba(157,123,255,.18)}
+  .roundBtn:hover{box-shadow:6px 6px 12px rgba(0,0,0,.55),-4px -4px 10px rgba(255,255,255,.06),0 0 16px rgba(139,108,255,.18)}
   .roundBtn:active{transform:scale(.95)}
   #playBtn svg{width:18px;height:18px;fill:var(--mark)}
   .stepBtn{width:34px;height:34px;font-size:13px;color:var(--dim)}
@@ -128,7 +128,7 @@
     background:linear-gradient(180deg,#191a1e,#212227);
     box-shadow:inset 0 2px 5px rgba(0,0,0,.65),inset 0 -1px 0 rgba(255,255,255,.04);
   }
-  .region{position:absolute;top:12px;bottom:12px;border-radius:7px;background:linear-gradient(180deg,rgba(157,123,255,.55),rgba(124,92,224,.55));box-shadow:0 0 12px rgba(157,123,255,.35);pointer-events:none}
+  .region{position:absolute;top:12px;bottom:12px;border-radius:7px;background:linear-gradient(180deg,rgba(139,108,255,.55),rgba(200,85,245,.55));box-shadow:0 0 12px rgba(139,108,255,.35);pointer-events:none}
   #playhead{
     position:absolute;top:50%;left:0;width:18px;height:18px;border-radius:50%;
     background:linear-gradient(145deg,#f4f5f7,#c9ccd4);transform:translate(-9px,-50%);will-change:transform;
@@ -140,7 +140,7 @@
   }
   .marker::before{
     content:'';display:block;width:5px;height:11px;margin:0 auto;border-radius:2.5px;
-    background:var(--mark);box-shadow:0 0 6px rgba(157,123,255,.5);
+    background:var(--mark);box-shadow:0 0 6px rgba(139,108,255,.5);
   }
   .marker.pending::before{background:var(--green);box-shadow:0 0 6px rgba(57,255,136,.5)}
   .region.alt{background:linear-gradient(180deg,rgba(57,255,136,.5),rgba(36,188,98,.5));box-shadow:0 0 12px rgba(57,255,136,.3)}
@@ -176,15 +176,15 @@
     box-shadow:var(--emboss);
     transition:box-shadow .2s,transform .1s;
   }
-  .bigBtn:hover{box-shadow:7px 7px 16px rgba(0,0,0,.55),-5px -5px 12px rgba(255,255,255,.055),0 0 18px rgba(157,123,255,.15);color:var(--accent)}
+  .bigBtn:hover{box-shadow:7px 7px 16px rgba(0,0,0,.55),-5px -5px 12px rgba(255,255,255,.055),0 0 18px rgba(139,108,255,.15);color:var(--accent)}
   .bigBtn:active{transform:scale(.96)}
   .bigBtn:disabled{opacity:.4;cursor:default;box-shadow:var(--inset);transform:none;color:var(--dim)}
   .bigBtn.amber{
     width:92px;color:#17181c;font-weight:600;
-    background:linear-gradient(145deg,#a98cff,#7c5ce0);
+    background:linear-gradient(145deg,#8b6cff,#c855f5);
     box-shadow:7px 7px 16px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35);
   }
-  .bigBtn.amber:hover{box-shadow:7px 7px 18px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.35),0 0 22px rgba(157,123,255,.45)}
+  .bigBtn.amber:hover{box-shadow:7px 7px 18px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.35),0 0 22px rgba(139,108,255,.45)}
   .bigBtn.amber:disabled{background:var(--keyface);color:var(--dim);font-weight:400}
 
   /* ---------- settings ---------- */
@@ -208,7 +208,7 @@
   #progressOverlay.show{display:flex}
   #progressLabel{font-size:12px;letter-spacing:.3em;color:var(--accent)}
   #progressBar{width:300px;height:8px;border-radius:4px;background:#191a1e;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)}
-  #progressFill{height:100%;width:0%;border-radius:4px;background:linear-gradient(90deg,#7c5ce0,#9d7bff);box-shadow:0 0 10px rgba(157,123,255,.5);transition:width .2s}
+  #progressFill{height:100%;width:0%;border-radius:4px;background:linear-gradient(90deg,#8b6cff,#c855f5);box-shadow:0 0 10px rgba(139,108,255,.5);transition:width .2s}
   #progressLog{font-family:Consolas,monospace;font-size:10px;color:var(--dim);letter-spacing:.05em;max-width:80vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
   #toasts{position:fixed;bottom:22px;right:22px;z-index:70;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
@@ -222,12 +222,18 @@
   .toast.err{border-left-color:#e0685f;color:#e8a49e}
   @keyframes toastIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-  #shortcuts{margin-top:10px;font-size:8px;color:var(--faint);letter-spacing:.15em;text-align:center;line-height:1.8;flex:none}
+  /* key hints along the bottom, as in align.jas.black: one line of raised chips, muted words */
+  #shortcuts{margin-top:12px;width:100%;flex:none;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+    font:8.5px Consolas,monospace;color:var(--dim);letter-spacing:.08em}
+  #shortcuts>span:last-child{margin-left:auto}
+  @media (hover:none) and (pointer:coarse){#shortcuts{display:none}}
   /* text that sits straight on the dot grid gets a soft patch of plain ground, so the dots fade out behind it */
-  .landTitle .name,.landTitle .by,#landing .hint,header h1,.groupLabel,#settings>label,#shortcuts{
+  .landTitle .name,.landTitle .by,#landing .hint,header h1,.groupLabel,#settings>label,#shortcuts>span{
     background:var(--bg);box-shadow:0 0 10px 9px var(--bg);border-radius:8px}
-  .groupLabel,#shortcuts{width:fit-content;margin-inline:auto}
-  kbd{border:1px solid var(--line);border-radius:3px;padding:1px 5px;font-family:Consolas,monospace;color:var(--dim)}
+  .groupLabel{width:fit-content;margin-inline:auto}
+  kbd{display:inline-block;min-width:14px;padding:0 4px;margin:0 1px;border-radius:3px;text-align:center;
+    border:1px solid #393b41;background:var(--panel);box-shadow:0 1px 0 rgba(0,0,0,.6);
+    font:500 8.5px/14px Consolas,monospace;color:var(--txt)}
 </style>
 </head>
 <body>
@@ -314,8 +320,8 @@
   </div>
 
   <div id="shortcuts">
-    <kbd>SPACE</kbd> PLAY &nbsp; <kbd>&larr;</kbd><kbd>&rarr;</kbd> FRAME STEP &nbsp; <kbd>SHIFT+&larr;&rarr;</kbd> 1S &nbsp;
-    <kbd>I</kbd><kbd>O</kbd> MARK IN/OUT &nbsp; <kbd>C</kbd> CUT &nbsp; <kbd>S</kbd> SAVE FRAME &nbsp; <kbd>HOME</kbd><kbd>END</kbd> ENDS
+    <span><kbd>space</kbd> play &middot; <kbd>&larr;</kbd><kbd>&rarr;</kbd> frame &middot; <kbd>shift</kbd>+<kbd>&larr;</kbd><kbd>&rarr;</kbd> 1s &middot; <kbd>home</kbd><kbd>end</kbd> ends &middot; <kbd>I</kbd> in &middot; <kbd>O</kbd> out &middot; <kbd>C</kbd> cut &middot; <kbd>S</kbd> still &middot; <kbd>esc</kbd> clear</span>
+    <span>right-click a setting resets it</span>
   </div>
 </div>
 
@@ -362,32 +368,23 @@ function paintGradient(canvas, w, h, from, to, angleDeg) {
   }
   ctx.putImageData(img, 0, 0);
 }
-// smooth value noise in [0,1] (fixed seed, so the pattern is the same every load)
-function dotNoise(x, y) {
-  const h = (i, j) => { let n = Math.imul(i, 374761393) + Math.imul(j, 668265263) ^ 0x5bd1e995; n = Math.imul(n ^ n >>> 13, 1274126177); return ((n ^ n >>> 16) >>> 0) / 4294967296; };
-  const i = Math.floor(x), j = Math.floor(y), fx = x - i, fy = y - j;
-  const sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
-  const top = h(i, j) + (h(i + 1, j) - h(i, j)) * sx, bot = h(i, j + 1) + (h(i + 1, j + 1) - h(i, j + 1)) * sx;
-  return top + (bot - top) * sy;
-}
-function bakeBackground() { // cutting-mat dot grid; one canvas pixel per device pixel, so it's drawn 1:1
+function bakeBackground() { // family dot grid, option B; one canvas pixel per device pixel, so it's drawn 1:1
   const dpr = window.devicePixelRatio || 1, canvas = $('bg');
   canvas.width = Math.round(innerWidth * dpr); canvas.height = Math.round(innerHeight * dpr);
   const ctx = canvas.getContext('2d');
   ctx.fillStyle = '#232427';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  const step = 24, r = 1.6 * dpr; // CSS px between dots; dot radius
+  // 16 CSS px apart, ~2 px across, white at 12/255: the same as the family's dotgrid tile
+  const step = 16, r = 1 * dpr;
+  ctx.fillStyle = 'rgba(255,255,255,0.047)';
+  ctx.beginPath();
   for (let gy = 0; gy * step < innerHeight + step; gy++) {
     for (let gx = 0; gx * step < innerWidth + step; gx++) {
-      // brightness drifts in soft patches: some dots nearly vanish, others stand out
-      const n = 0.65 * dotNoise(gx / 9, gy / 9) + 0.35 * dotNoise(gx / 3.5 + 40, gy / 3.5 + 40);
-      const a = 0.02 + 0.14 * Math.pow(Math.min(Math.max((n - 0.25) / 0.6, 0), 1), 1.6);
-      ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
-      ctx.beginPath();
-      ctx.arc((gx * step + 12) * dpr, (gy * step + 12) * dpr, r, 0, Math.PI * 2);
-      ctx.fill();
+      const x = (gx * step + 8) * dpr, y = (gy * step + 8) * dpr;
+      ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, Math.PI * 2);
     }
   }
+  ctx.fill();
 }
 bakeBackground();
 let bgTimer = 0;
@@ -1553,13 +1550,18 @@ $('sceneSens').addEventListener('input', e => {
   applyScenes(false);
 });
 $('sceneSens').addEventListener('change', saveSettings);
-// right-click any slider: back to its default (the value written in the HTML)
+// right-click any setting (slider, select, checkbox, also via its label): back to its default,
+// its state once the page loaded (saved settings included). Fires the same events a user's change does.
+const settingVal = el => el.type === 'checkbox' ? el.checked : el.value;
+const settingDefs = new Map(['sceneSens', 'setImgFmt', 'setSnipMode', 'setAudio', 'setMulti'].map(id => [$(id), settingVal($(id))]));
 document.addEventListener('contextmenu', e => {
-  const el = e.target;
-  if (e.defaultPrevented || !(el instanceof HTMLInputElement) || el.type !== 'range' || el.disabled) return;
+  if (e.defaultPrevented || !(e.target instanceof Element)) return;
+  const el = e.target.closest('input, select') || e.target.closest('label')?.control;
+  if (!el || el.disabled || !settingDefs.has(el)) return;
   e.preventDefault();
-  if (el.value === el.defaultValue) return;
-  el.value = el.defaultValue;
+  const d = settingDefs.get(el);
+  if (settingVal(el) === d) return;
+  if (typeof d === 'boolean') el.checked = d; else el.value = d;
   el.dispatchEvent(new Event('input', { bubbles: true }));
   el.dispatchEvent(new Event('change', { bubbles: true }));
 });
