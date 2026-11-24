@@ -236,6 +236,8 @@
   @media (hover:none) and (pointer:coarse){.forMouse{display:none}.forTouch{display:inline}}
   @media (max-width:600px){
     body{height:100dvh}
+    /* no double-tap zoom, so two quick taps on a frame-step key are two steps; pinch zoom and scrolling still work */
+    html{touch-action:manipulation}
     /* opening page: the block hangs a fixed share from the top, so it lands in the same place whatever
        the browser's toolbars do (centring in the full height put it lower on iPhone than on Android) */
     #landing{justify-content:flex-start;padding:clamp(88px,17svh,170px) 20px 0;gap:26px}
