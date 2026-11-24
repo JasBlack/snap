@@ -280,6 +280,9 @@
     /* the two key groups sit side by side, three small keys each */
     #toolsRow{width:100%;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:14px;margin-top:12px}
     .group{flex:1;min-width:0}
+    /* EXTRACT FRAME sits on the right, under a right-hand thumb; FRAME is filled purple like CLIP */
+    .group:first-child{order:2}
+    #btnFrame{color:#17181c;font-weight:600;background:linear-gradient(145deg,#8b6cff,#c855f5);box-shadow:4px 4px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35)}
     .vdiv{display:none}
     .groupLabel{margin-bottom:6px;font-size:8px;letter-spacing:.22em}
     .circleRow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
