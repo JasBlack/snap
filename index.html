@@ -113,12 +113,11 @@
   #playBtn svg{width:18px;height:18px;fill:var(--mark)}
   .stepBtn{width:34px;height:34px;font-size:13px;color:var(--dim)}
   .stepBtn:hover{color:var(--accent)}
-  /* IN / OUT at the playhead, the same as the I and O keys (CUT while scenes cover the timeline) */
+  /* IN / OUT at the playhead, phone layout only: the same as the I and O keys (CUT while scenes cover the timeline) */
   .markBtn{flex:none;width:40px;height:28px;border-radius:9px;font-size:9px;letter-spacing:.12em;color:var(--green);border:1px solid var(--green);transition:box-shadow .2s,transform .1s}
   .markBtn:hover{box-shadow:0 0 12px rgba(57,255,136,.3)}
   .markBtn:active{transform:scale(.95)}
   .markBtn:disabled{opacity:.4;cursor:default;box-shadow:none;transform:none}
-  #transportRow{gap:14px}
 
   #meta{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
   #metaTop{display:flex;justify-content:space-between;align-items:baseline;font-size:11px}
@@ -193,7 +192,7 @@
   .bigBtn.amber:hover{box-shadow:7px 7px 18px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.35),0 0 22px rgba(139,108,255,.45)}
   .bigBtn.amber:disabled{background:var(--keyface);color:var(--dim);font-weight:400}
   /* FRAME is filled purple like CLIP */
-  #btnFrame{color:#17181c;font-weight:600;background:linear-gradient(145deg,#8b6cff,#c855f5);box-shadow:7px 7px 16px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35)}
+  #btnFrame{width:92px;color:#17181c;font-weight:600;background:linear-gradient(145deg,#8b6cff,#c855f5);box-shadow:7px 7px 16px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35)}
   #btnFrame:hover{color:#17181c;box-shadow:7px 7px 18px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.35),0 0 22px rgba(139,108,255,.45)}
 
   /* ---------- settings ---------- */
@@ -246,7 +245,7 @@
     background:var(--bg);box-shadow:0 0 10px 9px var(--bg);border-radius:8px}
   .groupLabel{width:fit-content;margin-inline:auto}
   /* ---------- phone layout (desktop is untouched: everything below is inside these two queries) ---------- */
-  #newVideoBtn,.forTouch{display:none}
+  #newVideoBtn,.markBtn,.forTouch{display:none}
   @media (hover:none) and (pointer:coarse){.forMouse{display:none}.forTouch{display:inline}}
   @media (max-width:600px){
     body{height:100dvh}
@@ -287,13 +286,13 @@
     #playBtn svg{width:24px;height:24px}
     #playBtn{order:3}#markIn{order:1}#stepBack{order:2}#stepFwd{order:4}#markOut{order:5}
     .stepBtn{width:44px;height:44px;border-radius:50%;color:var(--accent);background:var(--keyface);box-shadow:var(--emboss)}
-    .markBtn{width:54px;height:44px;border-radius:14px;font-size:10px;letter-spacing:.14em}
+    .markBtn{display:block;width:54px;height:44px;border-radius:14px;font-size:10px;letter-spacing:.14em}
     .stepBtn:active{transform:scale(.95)}
 
     /* the two key groups sit side by side, three small keys each */
     #toolsRow{width:100%;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:14px;margin-top:12px}
     .group{flex:1;min-width:0}
-    #btnFrame{box-shadow:4px 4px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35)}
+    #btnFrame{width:100%;box-shadow:4px 4px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35)}
     .vdiv{display:none}
     .groupLabel{margin-bottom:6px;font-size:8px;letter-spacing:.22em}
     .circleRow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
