@@ -280,8 +280,7 @@
     /* the two key groups sit side by side, three small keys each */
     #toolsRow{width:100%;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:14px;margin-top:12px}
     .group{flex:1;min-width:0}
-    /* EXTRACT FRAME sits on the right, under a right-hand thumb; FRAME is filled purple like CLIP */
-    .group:first-child{order:2}
+    /* FRAME is filled purple like CLIP (EXTRACT FRAME sits on the right in the markup, under a right-hand thumb) */
     #btnFrame{color:#17181c;font-weight:600;background:linear-gradient(145deg,#8b6cff,#c855f5);box-shadow:4px 4px 9px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.35)}
     .vdiv{display:none}
     .groupLabel{margin-bottom:6px;font-size:8px;letter-spacing:.22em}
@@ -359,20 +358,20 @@
 
   <div id="toolsRow">
     <div class="group">
-      <div class="groupLabel">EXTRACT FRAME</div>
-      <div class="circleRow">
-        <button class="bigBtn" id="btnFirst">FIRST</button>
-        <button class="bigBtn" id="btnFrame">FRAME</button>
-        <button class="bigBtn" id="btnLast">LAST</button>
-      </div>
-    </div>
-    <div class="vdiv"></div>
-    <div class="group">
       <div class="groupLabel">EXPORT CLIP</div>
       <div class="circleRow">
         <button class="bigBtn" id="btnScenes" title="Find every cut / camera change and turn each scene into a clip">SCENES</button>
         <button class="bigBtn amber" id="btnSnip" disabled>CLIP</button>
         <button class="bigBtn" id="btnClearMarks" disabled>CLEAR<br>MARKS</button>
+      </div>
+    </div>
+    <div class="vdiv"></div>
+    <div class="group">
+      <div class="groupLabel">EXTRACT FRAME</div>
+      <div class="circleRow">
+        <button class="bigBtn" id="btnFirst">FIRST</button>
+        <button class="bigBtn" id="btnFrame">FRAME</button>
+        <button class="bigBtn" id="btnLast">LAST</button>
       </div>
     </div>
   </div>
