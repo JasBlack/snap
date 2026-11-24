@@ -86,7 +86,7 @@ None. The app has no backend, API keys or config. `.env.example` exists only to 
 
 **Untested / unverified:**
 - Firefox. Safari and Brave on macOS work (user-reported, not yet checked at frame level).
-- Mobile: no touch way to set in/out marks yet (needs right-click or `I`/`O` keys) — on-screen IN/OUT buttons would fix it.
+- Phone layout (`@media (max-width:600px)`, checked only in emulated iPhone 14 / Pixel 7 Chromium, not on real devices): stacked and centred; on-screen IN / OUT keys (`#markIn`/`#markOut`, same as `I`/`O`, become CUT in scene mode), `+ VIDEO` pill in the header (`#newVideoBtn`), settings as a 2×2 card with switches. The opening page hangs from the top (`padding-top` in `svh`) instead of centring in `100vh`, which sat lower on iPhone than Android. `.forMouse` / `.forTouch` swap hint text on touch devices. Desktop CSS is unchanged.
 - Folder-picker export (`showDirectoryPicker`, used when exporting >5 clips in Chrome/Edge) — automated tests can't click the OS dialog.
 - Real camera footage (VFR phone video, HEVC, 10-bit) — tests used ffmpeg `lavfi` sources.
 
